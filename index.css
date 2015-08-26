@@ -6,6 +6,10 @@ h2, h3, h4{
 	text-align: center; 
 }
 
+.table > tbody > tr > td {
+    vertical-align: middle;
+}
+
 .print-table {
 	max-width: 695px; 
 }
