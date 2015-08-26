@@ -31,6 +31,7 @@
 		<form action="print.php" method="post" data-toggle="validator" role="form" class="form-horizontal">
 			<div class="form-group">
 				<label for="inputName" class="control-label">教師姓名</label>
+				<span class="help-block">您與其他老師合授，請由一位老師代表填寫即可。</span>
 				<input type="text" name="inputName" class="form-control" value="<?php if(isset($_SESSION['stuID'])) echo $row['name']; ?>" id="inputName" placeholder="教師姓名" data-error="*必填" required>
 				<div class="help-block with-errors"></div>
 			</div>
