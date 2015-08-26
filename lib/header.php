@@ -13,7 +13,6 @@
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">
 							<?php if(isset($_SESSION['stuID'])){ 	?>
-							<li><a target="_balnk" href="<?php echo $URLPv; ?>page1.php">列印</a></li>
 							<li><a href="<?php echo $URLPv; ?>logout.php">離開</a></li>
 							<?php } ?>
                         </ul>
