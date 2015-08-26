@@ -17,8 +17,6 @@ require_once(dirname(__FILE__) . "/config.php");
 <div class="container body">
 <?php
 
-	if(!isset($_POST['inputName'])) 
-		locate($URLPv . "index.php");
 	if(isset($_SESSION['stuID'])){
 		$result = $DBmain->query("SELECT * FROM `need` WHERE `id` = '{$_SESSION['stuID']}'; ");
 		$row = $result->fetch_array(MYSQLI_BOTH);
@@ -31,6 +29,8 @@ require_once(dirname(__FILE__) . "/config.php");
 		$_SESSION['stuID'] = $id; 
 		$DBmain->query("INSERT INTO `need` (`semester`) VALUES ('104-1'); "); 
 	}
+
+if(isset($_POST['inputName'])){	
 	$name = $_POST['inputName']; 
 	$dept = $_POST['inputDept']; 
 	$full = $_POST['inputFull']=='full'? 1:($_POST['inputFull']=='part'? 2:""); 
@@ -106,9 +106,81 @@ require_once(dirname(__FILE__) . "/config.php");
 	$str .= "WHERE `id` = '{$_SESSION['stuID']}'; "; 
 	
 	$DBmain->query($str); 
-	locate($URLPv . "print.php"); 	
+	locate($URLPv . "print.php"); 
+}
+?>
+
+<?php 
+	
+
+
 ?>
 	<div class="print-table">
-
+		<h3>國立東華大學通識教育中心<br />
+		<?php echo $row['semester']; ?>教學助理申請表（教師用）</h3>
+		<table class="table text-left">
+			<tr><th colspan="12" class="text-center">教師基本資料</th></tr>
+			<tr>
+				<td class="text-center">教師姓名</td>
+				<td colspan="11"><?php echo $row['name']; ?></td>
+			</tr>
+			<tr>
+				<td class="text-center">任職系所</td>
+				<td colspan="7"><?php echo $row['dept']; ?></td>
+				<td colspan="2" class="text-center">專/兼任</td>
+				<td colspan="2"><?php echo $row['fullOrParttime']; ?></td>
+			</tr>
+			<tr>
+				<td class="text-center">教師職稱</td>
+				<td colspan="11"><?php echo $row['titles']; ?></td>
+			</tr>
+			<tr>
+				<td class="text-center">手機</td>
+				<td colspan="7"><?php echo $row['mobile']; ?></td>
+				<td colspan="2" class="text-center">分機</td>
+				<td colspan="2"><?php echo $row['ext']; ?></td>
+			</tr>
+			<tr>
+				<td class="text-center">E-mail</td>
+				<td colspan="11"><?php echo $row['email']; ?></td>
+			</tr>
+			<tr>
+				<td class="text-center">課程名稱</td>
+				<td colspan="11"><?php echo $row['courseName']; ?></td>
+			</tr>
+			<tr>
+				<td class="text-center">科目代碼</td>
+				<td colspan="11"><?php echo $row['courseCode']; ?></td>
+			</tr>
+			<tr>
+				<td class="text-center">TA人數</td>
+				<td><?php echo $row['TAamount']; ?></td>
+				<td rowspan="2" class="text-center need-hour">預期每週工作時數</td>
+				<td rowspan="2" colspan="2"><?php echo $row['TAhours'] . "小時"; ?></td>
+				<td rowspan="2" colspan="2" class="text-center">時段</td>
+				<td rowspan="2" colspan="5"><?php echo $row['TAworkday']; echo $row['TAworktime']; ?></td>
+			</tr>
+			<tr>
+				<td class="text-center">跟課與否</td>
+				<td><?php echo $row['TAwithClass']; ?></td>
+			</tr>
+			<tr class="top bottom">
+				<td class="text-center">課程屬性</td>
+				<td colspan="11"><?php echo $row['courseProperty']; ?></td>
+			</tr>
+			<tr class="top">
+				<td class="text-center">申請說明（含TA需協助事項）</td>
+				<td colspan="5"><?php echo $row['TAcontent']; ?></td>
+				<td colspan="6"><?php echo $row['TAcontent']; ?></td>
+			</tr>
+			<tr>
+				<td class="text-center need-apply">申請人簽名</td>
+				<td colspan="3" class="need-sign"></td>
+				<td class="text-center need-gen">通識中心主任</td>
+				<td colspan="5" class="need-sign"></td>
+				<td class="text-center need-ce">共同教育委員會主委</td>
+				<td class="need-sign"></td>
+			</tr>
+		</table>
 	</div>
 <?php require_once(dirname(__FILE__) . "/lib/footer.php"); ?>
