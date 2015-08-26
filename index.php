@@ -161,7 +161,7 @@
 						$weekday = array("日", "一", "二", "三", "四", "五", "六"); 
 						for($i=0; $i<count($weekday); $i++) { ?>
 					<label>
-						<input type="checkbox" name="inputTAworkday" value="<?php echo $i; ?>" <?php echo isset($_SESSION['stuID'])? ($row['TAworkday'][$i]=='Y'? "checked ":""):""; ?> data-error="*必填">
+						<input type="checkbox" name="inputTAworkday[]" value="<?php echo $i; ?>" <?php echo isset($_SESSION['stuID'])? ($row['TAworkday'][$i]=='Y'? "checked ":""):""; ?> data-error="*必填">
 						星期<?php echo $weekday[$i]; ?>
 					</label>
 					<?php } ?>
@@ -174,7 +174,7 @@
 					<?php 
 						for($i=0; $i<13; $i++) { ?>
 					<label>
-						<input type="checkbox" name="inputTAworktime" value="<?php echo $i; ?>" <?php echo isset($_SESSION['stuID'])? ($row['TAworktime'][$i]=='Y'? "checked ":""):""; ?> data-error="*必填">
+						<input type="checkbox" name="inputTAworktime[]" value="<?php echo $i; ?>" <?php echo isset($_SESSION['stuID'])? ($row['TAworktime'][$i]=='Y'? "checked ":""):""; ?> data-error="*必填">
 						<?php echo ($i+8) . "：00～" . ($i+9) . "：00"; ?>
 					</label>
 					<?php } ?>
@@ -189,14 +189,14 @@
 						for($i=0; $i<count($arr); $i++) {
 					?>
 					<label>
-						<input type="checkbox" name="inputTAcontent" value="<?php echo $i; ?>" <?php echo isset($_SESSION['stuID'])? ($row['TAcontent'][$i]=='Y'? "checked ":""):""; ?>>
+						<input type="checkbox" name="inputTAcontent[]" value="<?php echo $i; ?>" <?php echo isset($_SESSION['stuID'])? ($row['TAcontent'][$i]=='Y'? "checked ":""):""; ?>>
 						<?php echo $arr[$i]; ?>
 					</label>
 					<?php } ?>
 					<label>
-						<input type="checkbox" name="inputTAcontent" id="other" value="<?php echo count($arr); ?>" <?php echo isset($_SESSION['stuID'])? ($row['TAcontent'][$i]=='Y'? "checked ":""):""; ?>>
+						<input type="checkbox" name="inputTAcontent[]" id="other" value="<?php echo count($arr); ?>" <?php echo isset($_SESSION['stuID'])? ($row['TAcontent'][$i]=='Y'? "checked ":""):""; ?>>
 					其他：
-					<input type="text" onclick="document.getElementById('other').setAttribute('checked', ''); ">
+					<input type="text" name="other" onclick="document.getElementById('other').setAttribute('checked', ''); ">
 					</label>
 				</div>
 				<div class="help-block with-errors"></div>
