@@ -6,7 +6,7 @@ require_once(dirname(__FILE__) . "/config.php");
 <html>
 <head>
 	<meta charset="utf8">
-	<title>通識教育中心擔任教學助理（TA）申請</title>
+	<title>通識課程TA需求調查</title>
 	<link rel="stylesheet" href="<?php echo $URLPv; ?>lib/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" href="<?php echo $URLPv; ?>index.css">
 	<script src="<?php echo $URLPv; ?>lib/jquery/jquery-1.11.2.js"></script>
@@ -217,5 +217,6 @@ if(isset($_POST['inputName'])){
 				<td class="need-sign"></td>
 			</tr>
 		</table>
+		<p class="text-right">填表時間：<?php echo $row['applyTime']; ?></p>
 	</div>
 <?php require_once(dirname(__FILE__) . "/lib/footer.php"); ?>
