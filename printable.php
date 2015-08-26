@@ -77,7 +77,7 @@ if(!isset($_SESSION))
 			</tr>
 			<tr>
 				<td class="text-center">TA人數</td>
-				<td><?php echo $row['TAamount']; ?></td>
+				<td><?php echo $row['TAamount'] . $row['TAamount']>=4? "人以上":"人"; ?></td>
 				<td rowspan="2" class="text-center need-hour">預期每週工作時數</td>
 				<td rowspan="2" colspan="2"><?php echo $row['TAhours'] . "小時"; ?></td>
 				<td rowspan="2" colspan="2" class="text-center">時段</td>
