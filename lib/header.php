@@ -8,7 +8,7 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="index.php">國立東華大學 通識教育中心<br />104-1學期教學助理申請表(教師用)</a>
+                        <a class="navbar-brand" href="index.php">國立東華大學 通識教育中心 104-1學期教學助理申請表(教師用)</a>
                     </div>
                     <div id="navbar" class="navbar-collapse collapse">
                         <ul class="nav navbar-nav navbar-right">

@@ -122,7 +122,7 @@ if(isset($_POST['inputName'])){
 		<h3>國立東華大學通識教育中心<br />
 		<?php echo $row['semester']; ?>教學助理申請表（教師用）</h3>
 		<table class="table text-left">
-			<tr><th colspan="12" class="text-center">教師基本資料</th></tr>
+			<tr><th colspan="12" class="text-center">教師申請資料</th></tr>
 			<tr>
 				<td class="text-center">教師姓名</td>
 				<td colspan="11"><?php echo $row['name']; ?></td>
@@ -181,7 +181,7 @@ if(isset($_POST['inputName'])){
 				</td>
 			</tr>
 			<tr>
-				<td class="text-center">跟課與否</td>
+				<td class="text-center">上傳教學計畫表</td>
 				<td><?php echo $with[$row['TAwithClass']]; ?></td>
 			</tr>
 			<tr class="top bottom">
@@ -189,8 +189,8 @@ if(isset($_POST['inputName'])){
 				<td colspan="11"><?php echo $pro[($row['courseProperty']-1)]; ?></td>
 			</tr>
 			<tr class="top">
-				<td class="text-center">申請說明（含TA需協助事項）</td>
-				<td colspan="5">
+				<td rowspan="2" class="text-center">申請說明（含TA需協助事項）</td>
+				<td colspan="5" rowspan="2">
 					<?php
 						for($i=0; $i<count($TA); $i++){
 							if($row['TAcontent'][$i]=='Y')
@@ -201,12 +201,16 @@ if(isset($_POST['inputName'])){
 						}
 					?>
 				</td>
-				<td colspan="6" style="vertical-align: top; ">
+				<td colspan="6" style="vertical-align: top; height: 130px; ">
 					其他說明：<br />	
 				<?php 
 					for($i=10; $i<strlen($row['TAcontent']); $i++)
 						echo $row['TAcontent'][$i]; 
 				?></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="text-center">審核結果</td>
+				<td colspan="4">點數：</td>
 			</tr>
 			<tr>
 				<td class="text-center need-apply">申請人<br />簽名</td>

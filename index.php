@@ -145,7 +145,7 @@
 				<div class="help-block with-errors"></div>
 			</div>
 			<div class="form-group">
-				<label for="inputTAwithClass" class="control-label">TA需要跟課與否</label>
+				<label for="inputTAwithClass" class="control-label">上傳教學計畫表</label>
 				<div class="radio" data-error="*必填">
 					<label>
 						<input type="radio" name="inputTAwithClass" value="Y" <?php echo isset($_SESSION['stuID'])? ($row['TAwithClass']==1? "checked ":""):""; ?>required>
@@ -207,7 +207,7 @@
 					<?php } ?>
 					<label>
 						<input type="checkbox" name="inputTAcontent[]" id="other" value="<?php echo count($arr); ?>" <?php echo isset($_SESSION['stuID'])? ($row['TAcontent'][$i]=='Y'? "checked ":""):""; ?>>
-					其他：
+					補充說明：
 					<input type="text" name="other" onclick="document.getElementById('other').setAttribute('checked', ''); ">
 					</label>
 				</div>

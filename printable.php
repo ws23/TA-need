@@ -42,7 +42,7 @@ if(!isset($_SESSION))
 		<h3>國立東華大學通識教育中心<br />
 		<?php echo $row['semester']; ?>教學助理申請表（教師用）</h3>
 		<table class="table text-left">
-			<tr><th colspan="12" class="text-center">教師基本資料</th></tr>
+			<tr><th colspan="12" class="text-center">教師申請資料</th></tr>
 			<tr>
 				<td class="text-center">教師姓名</td>
 				<td colspan="11"><?php echo $row['name']; ?></td>
@@ -78,7 +78,7 @@ if(!isset($_SESSION))
 			<tr>
 				<td class="text-center">TA人數</td>
 				<td><?php echo $row['TAamount'] . ($row['TAamount']>=4? "人以上":"人"); ?></td>
-				<td rowspan="2" class="text-center need-hour">預期每週工作時數</td>
+				<td rowspan="2" style="width: 70px" class="text-center need-hour">預期每週工作時數</td>
 				<td rowspan="2" colspan="2"><?php echo $row['TAhours'] . "小時"; ?></td>
 				<td rowspan="2" colspan="2" class="text-center">時段</td>
 				<td rowspan="2" colspan="5">
@@ -101,7 +101,7 @@ if(!isset($_SESSION))
 				</td>
 			</tr>
 			<tr>
-				<td class="text-center">跟課與否</td>
+				<td class="text-center">上傳教學計畫表</td>
 				<td><?php echo $with[$row['TAwithClass']]; ?></td>
 			</tr>
 			<tr class="top bottom">
@@ -109,8 +109,8 @@ if(!isset($_SESSION))
 				<td colspan="11"><?php echo $pro[($row['courseProperty']-1)]; ?></td>
 			</tr>
 			<tr class="top">
-				<td class="text-center">申請說明（含TA需協助事項）</td>
-				<td colspan="5">
+				<td rowspan="2" class="text-center">申請說明（含TA需協助事項）</td>
+				<td colspan="5" rowspan="2" style="width: 220px; ">
 					<?php
 						for($i=0; $i<count($TA); $i++){
 							if($row['TAcontent'][$i]=='Y')
@@ -121,12 +121,16 @@ if(!isset($_SESSION))
 						}
 					?>
 				</td>
-				<td colspan="6" style="vertical-align: top; ">
+				<td colspan="6" style="vertical-align: top; height: 130px; ">
 					其他說明：<br />	
 				<?php 
 					for($i=10; $i<strlen($row['TAcontent']); $i++)
 						echo $row['TAcontent'][$i]; 
 				?></td>
+			</tr>
+			<tr>
+				<td colspan="2" class="text-center">審核結果</td>
+				<td colspan="4">點數：</td>
 			</tr>
 			<tr>
 				<td class="text-center need-apply">申請人<br />簽名</td>
@@ -137,7 +141,20 @@ if(!isset($_SESSION))
 				<td class="need-sign"></td>
 			</tr>
 		</table>
-		<p class="text-right">填表時間：<?php echo $row['applyTime']; ?><br />
+		<p style="margin-top: -15px; " class="text-right">填表時間：<?php echo $row['applyTime']; ?><br />
 		列印時間：<?php echo date("Y-m-d H:i:s", time()); ?></p>
-		
+    </p>
+<p class="notice" style="font-size: 8pt; margin-top: -50px; ">注意事項：
+<ol>
+<li>104-1學期起通識教育中心教學助理(TA)全面改採申請制。</li>
+<li>申請教師請務必確認該學期教學計劃表是否已上傳，通識教育中心將會印下教學計劃表
+為附件。</li>
+<li>該申請書截止收件日為每學期開學前7日。</li>
+<li>貴課程教學數理(TA)點數確認日為開學前5日。</li>
+<li>如已有屬意之教學助理，請於點數確認日後提醒該助理至通識教育中心網站報名。</li>
+<li>最終各課程點數及教學助理名單仍需依通識教育中心審核為準。</li>
+<li>以上個人資料本中心將遵守個人資料保護法及資訊安全保密之相關規定，不另做其他私
+人或商業用途。</li>
+    </ol>
+</p>
 	</div>
