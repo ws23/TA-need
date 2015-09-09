@@ -88,7 +88,7 @@ if(!isset($_SESSION))
 							echo "星期" . $week[$i] . "、"; 
 					echo "<br />"; 
 					if($row['TAworktime'][0]=='Y')
-						echo $i+8 . ":00 ~ "; 
+						echo 8 . ":00 ~ "; 
 					for($i=1; $i<strlen($row['TAworktime']); $i++){
 						if($row['TAworktime'][$i]=='Y' && $row['TAworktime'][($i-1)]=='N')
 							echo $i+8 . ":00 ~ "; 
